@@ -1,0 +1,379 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Standard Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <!-- Site Properities -->
+    <title>Aboutus</title>
+    <link rel="stylesheet" type="text/css" href=" ./semantic-ui/dist/semantic.min.css">
+    <script type='text/javascript' src="jquery-2.1.4.js"></script>
+    <script type='text/javascript' src="js/PHP.js"></script>
+    <!-- fonts -->
+    <style type="text/css">
+        @font-face {
+            font-family: minecrafterregular;
+            src: url('./fonts/minecrafter.reg-webfont.eot');
+            src: url('./fonts/minecrafter.reg-webfont.eot?#iefix') format('embedded-opentype'), url('./fonts/minecrafter.reg-webfont.woff2') format('woff2'), url('./fonts/minecrafter.reg-webfont.woff') format('woff'), url('./fonts/minecrafter.reg-webfont.ttf') format('truetype'), url('./fonts/minecrafter.reg-webfont.svg#minecrafterregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: minecraft_peregular;
+            src: url('./fonts/minecraft_pe-webfont.eot');
+            src: url('./fonts/minecraft_pe-webfont.eot?#iefix') format('embedded-opentype'), url('./fonts/minecraft_pe-webfont.woff2') format('woff2'), url('./fonts/minecraft_pe-webfont.woff') format('woff'), url('./fonts/minecraft_pe-webfont.ttf') format('truetype'), url('./fonts/minecraft_pe-webfont.svg#minecraft_peregular') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        #black {
+            background: #000000;
+        }
+
+        #white {
+            color: #FFFFFF;
+        }
+
+        #whiteback {
+            background: #FFFFFF;
+        }
+
+        #padding-card {
+            padding-left: 3em;
+        }
+
+        #padding-tab {
+            padding-right: 22px;
+        }
+
+        #PaddingBottom {
+            padding-bottom: 47px;
+        }
+
+        #left-aligned {
+            text-align: left;
+        }
+
+        #no-padding {
+            padding: 0px;
+        }
+
+        #left-aligned-no-padding {
+            padding: 0px 0px 0px 10px;
+            text-align: left;
+        }
+
+        #no-margin {
+            margin: 0px;
+        }
+
+        .masthead.segment {
+            min-height: 700px;
+            padding: 1em 0em;
+        }
+
+        .masthead .logo.item img {
+            margin-right: 1em;
+        }
+
+        .masthead .ui.menu .ui.button {
+            margin-left: 0.5em;
+        }
+
+        .masthead h1.ui.header {
+            margin-top: 3em;
+            margin-bottom: 0em;
+            font-size: 4em;
+            font-weight: normal;
+        }
+
+        .masthead h2 {
+            font-size: 1.7em;
+            font-weight: normal;
+        }
+
+        .ui.vertical.stripe {
+            padding: 8em 0em;
+        }
+
+            .ui.vertical.stripe h3 {
+                font-size: 2em;
+            }
+
+            .ui.vertical.stripe .button + h3,
+            .ui.vertical.stripe p + h3 {
+                margin-top: 3em;
+            }
+
+            .ui.vertical.stripe .floated.image {
+                clear: both;
+            }
+
+            .ui.vertical.stripe p {
+                font-size: 1.33em;
+            }
+
+            .ui.vertical.stripe .horizontal.divider {
+                margin: 3em 0em;
+            }
+
+        .quote.stripe.segment {
+            padding: 0em;
+        }
+
+            .quote.stripe.segment .grid .column {
+                padding-top: 5em;
+                padding-bottom: 5em;
+            }
+
+        .footer.segment {
+            padding: 5em 0em;
+        }
+
+        .secondary.pointing.menu .toc.item {
+            display: none;
+        }
+
+        @media only screen and (max-width: 700px) {
+            .ui.fixed.menu {
+                display: none !important;
+            }
+
+            .secondary.pointing.menu .item,
+            .secondary.pointing.menu .menu {
+                display: none;
+            }
+
+            .secondary.pointing.menu .toc.item {
+                display: block;
+            }
+
+            .masthead.segment {
+                min-height: 350px;
+            }
+
+            .masthead h1.ui.header {
+                font-size: 2em;
+                margin-top: 1.5em;
+            }
+
+            .masthead h2 {
+                margin-top: 0.5em;
+                font-size: 1.5em;
+            }
+        }
+            .round_photo {
+                width: 110px;
+                height: 110px;
+                border: 4px solid #ddddde;
+                -moz-border-radius: 59px;
+                -webkit-border-radius: 59px;
+                border-radius: 59px;
+                behavior: url(PIE.htc);
+                position: absolute;
+                top: 50px;
+                left: 20px;
+            }
+            .textY {
+                margin: 0;
+                padding: 0;
+                overflow-x: hidden;
+                min-width: 320px;
+                font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+                font-size: 14px;
+                line-height: 1.4285em;
+                color: rgba(255,159,28,.87);
+                
+            }
+        
+    </style>
+
+    <script>
+        $(document)
+          .ready(function () {
+              $('.tabular.menu .item').tab();
+
+              $('.ui.accordion')
+                .accordion()
+              ;
+
+              $(".create.button").click(function () {
+                  $('.create.page.modal')
+                      .modal('show')
+                  ;
+              })
+              ;
+
+              $('#register').click(function () {
+                  $('.register.page.dimmer')
+                    .dimmer('show')
+                  ;
+              })
+              ;
+              $('#registerclose').click(function () {
+                  $('.register.page.dimmer')
+                    .dimmer('hide')
+                  ;
+              })
+              ;
+
+              $('#createclose').click(function () {
+                  $('.create.page.dimmer')
+                    .dimmer('hide')
+                  ;
+              })
+              ;
+
+          })
+        ;
+    </script>
+    <script src="./semantic-ui/dist/semantic.min.js"></script>
+</head>
+<body>
+
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
+            <div class="ui large secondary inverted pointing menu">
+                <a href="index.html" class="item">Home</a>
+                <a href="aboutus.html" class="active item">About us</a>
+                <a href="mission.html" class="item">Mission</a>
+                <a href="info.html" class="item">info</a>
+                <div id="right" class="right item">
+                    <div class="ui form">
+                        <div class="fields">
+                            <div class="field">
+                                <input id="id" placeholder="Username" type="text">
+                            </div>
+                            <div class="field">
+                                <input id="password" type="password">
+                            </div>
+                        </div>
+                    </div>
+                    <input class="ui inverted button" type="button" id="login" value="登入">
+                    <input class="ui register inverted button" type="button" id="register" value="註冊">
+                </div>
+                </div>
+            <div id="whiteback" class="ui vertical stripe segment">
+                <div class="ui middle aligned stackable grid container">
+                    <div class="row">
+                        <div class="eight wide column">
+                            <br /><br /><br /><br /><br /><br /><br />
+                            <h3 class="ui header">聖倫汪</h3>
+                            <p class="textY">目前就讀成大電機三年級,擔任LTMM的組長,C++能力尚可,剛開始接觸網頁設計，目標是做出一個很酷的網頁。</p>
+                        </div>
+                        <div class="six wide right floated column">
+
+                            <img src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xaf1/v/t1.0-9/11825571_885443691549640_6839628975477884105_n.jpg?oh=e4cb12dc6524d7e577fef742db24301d&oe=56CAB8A0&__gda__=1456417809_d9cb40a6ee070157e9c77daa2f2ca682" height="99%" width="99%" class="round_photo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="eight wide column">
+                            <br /><br /><br /><br /><br /><br /><br />
+                            <h3 class="ui header">Allen Lin</h3>
+                            <p class="textY">1995/02/14<br />水瓶座 A型 20歲青年 <br />個人覺得自己是一個有毅力的人 做什麼事只要下定決心 <br />就一定會把它做好 Just Do It.  <br />台南一中前7%畢業 大學主修電機 副修流舞系 <br />曾在高雄 台北 台中多次表演 也參加了許多街舞比賽 <br />曾擔任成大南友育樂營(TSA)課程導師 舞會副招</p>
+                        </div>
+                        <div class="six wide right floated column">
+
+                            <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/p160x160/11100638_939235059461660_8075035650072072458_n.jpg?oh=fa807444733a6cef3ed67c9f3ec958be&oe=5696A30E&__gda__=1455665287_541004314fc943f31184b4f5ca8d5927" height="99%" width="99%" class="round_photo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="eight wide column">
+                            <br /><br /><br /><br /><br /><br /><br />
+                            <h3 class="ui header">莊勝棠</h3>
+                            <p class="textY">來自台北，目前就讀工科系，個性善良隨合，喜歡看電影、聽音樂，偶爾會打打球，希望這次的網頁可以做得很好 </p>
+                        </div>
+                        <div class="six wide right floated column">
+
+                            <img src="https://fbcdn-sphotos-f-a.akamaihd.net/hphotos-ak-xpf1/v/t1.0-9/10509714_950145091668815_1715219303693369725_n.jpg?oh=98acf9a10b37bcfcea974ada5038c43e&oe=56860C06&__gda__=1451855212_db475c28a0dbeba72126731f9157e37f" height="99%" width="99%" class="round_photo">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="eight wide column">
+                            <br /><br /><br /><br /><br /><br /><br />
+                            <h3 class="ui header">大為教主</h3>
+                            <p class="textY">我是大為，標準的90後學渣。<br>大學主修"學生組織系"，翻滾過校內各學生組織<br>去年學生會長卸任後<br>今年是我主修電機系的"一年級"，請多多指教 ^^ </p>
+                        </div>
+                        <div class="six wide right floated column">
+
+                            <img src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xfp1/v/t1.0-9/12006173_870831203001022_8080309730249087365_n.jpg?oh=1b4a34929bba98ee17bb4a7a0d8c3003&oe=56940E21&__gda__=1456702120_d4165ead72c255a33e2b78299770f5ad" height="99%" width="99%" class="round_photo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+        </div>
+
+        <div class="ui register page dimmer">
+            <div class="content">
+                <div class="ui center aligned grid">
+                    <div class="six wide column">
+                        <div id="PaddingBottom" class="ui segment">
+                            <form class="ui form">
+                                <div class=" field">
+                                    <label class="ui  teal label">帳號</label>
+                                    <input type="text" name="id">
+                                </div>
+                                <div class=" field">
+                                    <label class="ui  teal label">密碼</label>
+                                    <input type="password" name="password">
+                                </div>
+                                <div class=" field">
+                                    <label class="ui  teal label">再輸入一次密碼</label>
+                                    <input type="password" name="password2">
+                                </div>
+                                <div class=" field">
+                                    <label class="ui  teal label">信箱</label>
+                                    <input type="text" name="email">
+                                </div>
+                                <div class=" field">
+                                    <label class="ui  teal label">Facebook名稱</label>
+                                    <input type="text" name="FB">
+                                </div>
+                                <div id="regsubmit" name="button" class="ui right floated primary button">註冊</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">About</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">Sitemap</a>
+                            <a href="#" class="item">Contact Us</a>
+                            <a href="#" class="item">Religious Ceremonies</a>
+                            <a href="#" class="item">Gazebo Plans</a>
+                        </div>
+                    </div>
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">Services</h4>
+                        <div class="ui inverted link list">
+                            <a href="#" class="item">Banana Pre-Order</a>
+                            <a href="#" class="item">DNA FAQ</a>
+                            <a href="#" class="item">How To Access</a>
+                            <a href="#" class="item">Favorite X-Men</a>
+                        </div>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui inverted header">Footer Header</h4>
+                        <p>早就跟你說過要聽媽媽的話！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+</body>
+
+</html>
