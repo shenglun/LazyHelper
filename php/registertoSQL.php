@@ -3,12 +3,17 @@ header('Content-type: text/html; charset=utf-8');
 ?>
 <?php
 include("connectoSQL.php");
-
-$id = $_POST['id'];
-$password = $_POST['password'];
-$password2 = $_POST['password2'];
-$email = $_POST['email'];
-$FB = $_POST['FB'];
+$output_dir = "/upload";
+$id =strip_tags($_POST['id']);/*//*/
+$password =strip_tags( $_POST['password']);
+$password2 =strip_tags( $_POST['password2']);
+$email =strip_tags( $_POST['email']);
+$FB =strip_tags( $_POST['FB']);
+if((!preg_match('/^[0-9a-z]+$/i',$id))||(!preg_match('/^[0-9a-z]+$/i',$password))||(!preg_match('/^[0-9a-z]+$/i',$password2))||(!preg_match('/^[0-9a-z]+$/i',$email))||(!preg_match('/^[0-9a-z]+$/i',$FB)))
+{
+  echo '請勿輸入特殊字元';
+  exit;
+}
 $sql = "SELECT name FROM test WHERE name = '$id'";
 $check =  mysql_query($sql);
 $row = mysql_fetch_array($check);
@@ -19,21 +24,20 @@ if($id!=NULL&&$password!=NULL&&$password2==$password)
         $sql = "INSERT INTO test(name,password,email,FB) VALUES('$id','$password','$email','$FB')";
         if(mysql_query($sql))
         {
-            echo '1';
-            
+	   move_uploaded_file($_FILES["head"]["tmp_name"],$output_dir/$_FILES['head']['name']);
+            echo '成功註冊';//1 資安期間先不用AJAX
         }
         else
         {
-            echo '4';
-            
+            echo '失敗';//4
         }
     }
     else{
-        echo '2';
+        echo '有人註冊過';//2
     }
 }
 else
 {
-    echo '3';
+    echo '不得為空';//3
 }
 ?>

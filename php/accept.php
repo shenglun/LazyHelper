@@ -12,16 +12,21 @@ session_start();
 		$result=mysql_query($sql);
 		$row=mysql_fetch_row($result);
 		if($row==NULL){
-		$sql = "INSERT INTO accept(name,what,whereis,whenis,pay,who,num,type) SELECT name,what,whereis,whenis,pay,who,num,type FROM mission WHERE num=$num2 AND type='$type'";
+		$sql = "INSERT INTO accept(id,num,type) VALUES('$loginname',$num2,'$type')";
+		if(mysql_query($sql))
+		{
+		$sql = "SELECT acceptnum FROM mission WHERE type = '$type' AND num = $num2 ";
+		$result=mysql_query($sql);
+		$row=mysql_fetch_row($result);
+		$row[0]=$row[0]+1;
+		$sql = "UPDATE mission SET acceptnum = $row[0] WHERE type = '$type' AND num = $num2 ";
 		if(mysql_query($sql))
 		echo'3';
 		else
-		echo '1';
-		$sql = "UPDATE accept SET id = '$loginname' WHERE type = '$type' AND num = $num2";
-		if(mysql_query($sql))
-		echo '4';
+		echo'7';
+		}
 		else
-		echo '2';
+		echo '1';
 		}
 		else
 			echo '5';
